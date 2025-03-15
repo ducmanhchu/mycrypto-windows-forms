@@ -22,9 +22,9 @@ namespace MyCrypto.Models
         public Transaction(string sender, string receiver, double amount)
         {
             if (string.IsNullOrWhiteSpace(sender) || string.IsNullOrWhiteSpace(receiver))
-                throw new ArgumentException("Sender and Receiver cannot be empty.");
+                throw new ArgumentException("Người gửi và người nhận không được bỏ trống");
             if (amount <= 0)
-                throw new ArgumentException("Amount must be greater than zero.");
+                throw new ArgumentException("Số tiền gửi phải lớn hơn 0");
 
             Sender = sender;
             Receiver = receiver;
@@ -41,7 +41,7 @@ namespace MyCrypto.Models
         public void SignTransaction(string base64PrivateKey)
         {
             if (string.IsNullOrEmpty(base64PrivateKey))
-                throw new ArgumentNullException(nameof(base64PrivateKey), "Private key used to sign the transaction cannot be empty!");
+                throw new ArgumentNullException(nameof(base64PrivateKey), "Khóa riêng tư dùng để ký giao dịch không được bỏ trống!");
 
             try
             {
@@ -51,11 +51,11 @@ namespace MyCrypto.Models
                 byte[] dataBytes = Encoding.UTF8.GetBytes(CalculateHash());
                 Signature = Convert.ToBase64String(rsa.SignData(dataBytes, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1));
 
-                Console.WriteLine("Transaction signed successfully!");
+                Console.WriteLine("Giao dịch được ký thành công!");
             }
             catch (Exception ex)
             {
-                throw new Exception("Error signing transaction: " + ex.Message);
+                throw new Exception("Lỗi khi ký giao dịch: " + ex.Message);
             }
         }
 

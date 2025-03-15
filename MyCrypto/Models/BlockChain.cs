@@ -30,11 +30,11 @@ namespace MyCrypto.Models
         public void AddTransaction(Transaction transaction)
         {
             if (string.IsNullOrWhiteSpace(transaction.Sender) || string.IsNullOrWhiteSpace(transaction.Receiver))
-                throw new Exception("Invalid transaction: Missing sender or recipient information!");
+                throw new Exception("Giao dịch không hợp lệ: Thiếu thông tin người nhận hoặc người gửi");
             if (transaction.Amount <= 0)
-                throw new Exception("Invalid transaction: Deposit amount must be greater than 0!");
+                throw new Exception("Giao dịch không hợp lệ: Số tiền gửi phải lớn hơn 0");
             if (GetBalance(transaction.Sender) < transaction.Amount)
-                throw new Exception("Balance is not enough!");
+                throw new Exception("Số dư không đủ!");
 
             pendingTransactions.Add(transaction);
         }
