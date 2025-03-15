@@ -30,7 +30,7 @@ MyCrypto is a Windows Forms application that simulates the core functionalities 
 ### Steps to Run
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/MyCrypto.git
+   git clone https://github.com/yourusername/MyCrypto.git](https://github.com/ducmanhchu/mycrypto-windows-forms
 2. Open the project in Visual Studio.
 3. Build and run the application.
 
