@@ -3,6 +3,11 @@
 ## Introduction
 MyCrypto is a Windows Forms application that simulates the core functionalities of a cryptocurrency system. It allows users to create transactions, sign them with a private key, verify transaction validity, and add them to a blockchain. The system also supports mining blocks and tracking balances.
 
+## Security Notice
+This project is for **educational purposes only**. The cryptographic key pairs generated and used within this application **are not secure** and should **not be used for real-world transactions**.  
+If you intend to use this project beyond a learning environment, ensure that you generate and store private keys securely, and never expose them in a public repository.
+
+
 ## Features
 - **Blockchain System**: A simple blockchain that stores transaction data.
 - **Key Pair Generation**:
